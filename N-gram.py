@@ -1,12 +1,13 @@
 import pandas as pd
+
 import matplotlib.pyplot as plt
 from nltk.util import ngrams
-from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
 from collections import Counter
 import nltk
 
-# Download resources
+# Download required NLTK resources
 nltk.download('punkt')
 nltk.download('punkt_tab')  # needed for new NLTK versions
 nltk.download('stopwords')
