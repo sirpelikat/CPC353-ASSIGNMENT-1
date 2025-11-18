@@ -1,6 +1,7 @@
 import pandas as pd
 import spacy
 import matplotlib.pyplot as plt
+from wordcloud import WordCloud
 from collections import Counter
 
 # Load spaCy model
@@ -39,6 +40,9 @@ plt.ylabel("Adjective")
 plt.tight_layout()
 plt.show()
 
+plt.savefig("Top Adjectives Bar Graph.png", dpi=300)
+plt.clf()
+
 # ---------- 2. Top Nouns ----------
 noun_words, noun_counts = zip(*noun_freq)
 plt.barh(noun_words, noun_counts, color='orange')
@@ -48,3 +52,18 @@ plt.xlabel("Frequency")
 plt.ylabel("Noun")
 plt.tight_layout()
 plt.show()
+
+plt.savefig("Top Nouns Bar Graph.png", dpi=300)
+plt.clf()
+
+# ---------- 5. Optional: WordCloud for adjectives + nouns ----------
+word_freq = dict(adj_freq + noun_freq)
+wordcloud = WordCloud(width=800, height=400, background_color='white').generate_from_frequencies(word_freq)
+
+plt.figure(figsize=(10, 6))
+plt.imshow(wordcloud, interpolation='bilinear')
+plt.axis("off")
+plt.title("Word Cloud of Most Frequent Adjectives and Nouns")
+plt.show()
+
+wordcloud.to_file("Wordcloud of top nouns and adjectives.png")

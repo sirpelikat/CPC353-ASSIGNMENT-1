@@ -44,6 +44,9 @@ plt.ylabel("Bigram")
 plt.tight_layout()
 plt.show()
 
+plt.savefig("Top Bigrams Bar Graph.png", dpi=300)
+plt.clf()
+
 # ---------- 4. Top Trigrams ----------
 trigram_words = [' '.join(t) for t, _ in trigram_freq]
 trigram_counts = [count for _, count in trigram_freq]
@@ -54,3 +57,6 @@ plt.xlabel("Frequency")
 plt.ylabel("Trigram")
 plt.tight_layout()
 plt.show()
+
+plt.savefig("Top Trigrams Bar Graph.png", dpi=300)
+plt.clf()
